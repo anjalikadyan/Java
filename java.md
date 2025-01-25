@@ -144,5 +144,299 @@ public class First {
         return sum;
     }
 }
+
+# Object-Oriented Programming (OOP) in Java
+
+Object-Oriented Programming (OOP) allows developers to solve real-world problems by taking real-world entities and translating them into objects and blueprints (classes). Below are the main concepts of OOP with examples:
+
+## 1. Class and Object
+A class is a blueprint for objects, and objects are instances of a class. Objects are used to access the class's variables and methods.
+
+```java
+class Person {
+    String name;
+    int age;
+
+    // Methods
+    void walk() {
+        System.out.println(name + " is walking.");
+    }
+
+    void eat() {
+        System.out.println(name + " is eating.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person p1 = new Person();
+        Person p2 = new Person();
+
+        p1.name = "Alice";
+        p1.age = 25;
+
+        p2.name = "Bob";
+        p2.age = 30;
+
+        p1.walk();
+        p2.eat();
+    }
+}
 ```
+
+## 2. Polymorphism
+Polymorphism means performing a single action in different ways. For example, we can overload the `walk` method with different parameters.
+
+```java
+class Person {
+    void walk() {
+        System.out.println("Walking with no arguments.");
+    }
+
+    void walk(int steps) {
+        System.out.println("Walking " + steps + " steps.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person p = new Person();
+
+        p.walk(); // No arguments
+        p.walk(10); // With arguments
+    }
+}
+```
+
+## 3. Constructors
+Constructors are used to initialize objects. They are called when an object is created.
+
+```java
+class Person {
+    String name;
+    int age;
+
+    // Constructor
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Display method
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person p = new Person("Alice", 25);
+        p.display();
+    }
+}
+```
+
+If you want to call one constructor from another, use the `this()` keyword:
+
+```java
+class Person {
+    String name;
+    int age;
+
+    // Default constructor
+    Person() {
+        this("Default Name", 0); // Calling parameterized constructor
+    }
+
+    // Parameterized constructor
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person p = new Person();
+        p.display();
+    }
+}
+```
+
+## 4. Inheritance
+Inheritance allows a child class to inherit properties and methods from a parent class.
+
+```java
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("This dog barks.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat(); // Inherited from Animal
+        d.bark();
+    }
+}
+```
+
+The `super` keyword is used to call the parent class's constructor:
+
+```java
+class Animal {
+    Animal() {
+        System.out.println("Animal created.");
+    }
+}
+
+class Dog extends Animal {
+    Dog() {
+        super(); // Calls the parent class constructor
+        System.out.println("Dog created.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+    }
+}
+```
+
+
+### Abstraction 
+In Java, interfaces provide a mechanism for achieving abstraction. All variables in an interface are implicitly **public**, **static**, and **final**, while all methods are implicitly **public** and **abstract** (unless they are static or default methods).
+
+### Example of an Interface:
+```java
+// Defining an interface
+interface Animal {
+    // Abstract method (no body, to be implemented by classes)
+    void makeSound();
+
+    // Final variable (constant)
+    int numberOfLegs = 4; // Implicitly public, static, and final
+}
+
+// Implementing the interface
+class Dog implements Animal {
+    public void makeSound() {
+        System.out.println("Woof Woof");
+    }
+}
+
+class Cat implements Animal {
+    public void makeSound() {
+        System.out.println("Meow");
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        dog.makeSound(); // Outputs: Woof Woof
+
+        Animal cat = new Cat();
+        cat.makeSound(); // Outputs: Meow
+    }
+}
+```
+
+### Explanation:
+1. **Animal Interface**:
+   - Defines the structure (method signature) without any implementation.
+   - Ensures that every class implementing it will define the `makeSound` method.
+
+2. **Dog and Cat Classes**:
+   - Provide their own implementation of the `makeSound` method, adhering to the `Animal` interface.
+
+3. **Main Class**:
+   - Uses the `Animal` interface to interact with objects of `Dog` and `Cat`, hiding their internal implementation.
+
+---
+
+### Benefits of Abstraction
+1. **Reduced Complexity**: Simplifies program interaction.
+2. **Flexibility**: Allows changes in the implementation without affecting the interface.
+3. **Code Reusability**: Promotes reuse of abstracted logic.
+4. **Improved Maintenance**: Easier to maintain and update the code.
+
+---
+
+## 5. Encapsulation
+Encapsulation groups variables and methods that work together, and it helps in achieving data hiding.
+
+### Example of Encapsulation:
+```java
+class Person {
+    private String name;
+    private int age;
+
+    // Getter and Setter methods
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age > 0) { // Validation to ensure age is positive
+            this.age = age;
+        } else {
+            System.out.println("Age must be positive.");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person person = new Person();
+
+        // Setting values using setter methods
+        person.setName("Alice");
+        person.setAge(25);
+
+        // Getting values using getter methods
+        System.out.println("Name: " + person.getName()); // Outputs: Name: Alice
+        System.out.println("Age: " + person.getAge());   // Outputs: Age: 25
+
+        // Trying to set an invalid age
+        person.setAge(-5); // Outputs: Age must be positive.
+    }
+}
+```
+
+### Explanation:
+1. **Private Variables**:
+   - Ensure that the data (name and age) cannot be directly accessed from outside the `Person` class.
+
+2. **Getter and Setter Methods**:
+   - Provide controlled access to the private variables.
+   - Allow validation before assigning values (e.g., ensuring age is positive).
+
+3. **Main Class**:
+   - Demonstrates how encapsulation enforces controlled interaction with the `Person` class.
+
+---
+
+By combining abstraction and encapsulation, you can design systems that are both flexible and secure.
 
