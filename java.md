@@ -440,3 +440,81 @@ public class Main {
 
 By combining abstraction and encapsulation, you can design systems that are both flexible and secure.
 
+## Arrays in Java
+
+An **array** is a collection of elements of the same type stored in a single variable. It is useful for storing multiple values of the same type efficiently.
+
+In Java, arrays are first declared and then initialized. After that, data can be stored in the array.
+
+## Declaring an Array
+To declare an array in Java, specify the type of elements followed by square brackets:
+```java
+int[] numbers; // Declaration of an integer array
+String[] names; // Declaration of a string array
+```
+
+## Initializing an Array
+An array can be initialized at the time of declaration or later:
+
+### 1. At the time of declaration:
+```java
+int[] numbers = {1, 2, 3, 4, 5};
+String[] names = {"Alice", "Bob", "Charlie"};
+```
+
+### 2. Later initialization:
+```java
+int[] numbers = new int[5]; // Creates an array of size 5
+numbers[0] = 10;
+numbers[1] = 20;
+numbers[2] = 30;
+numbers[3] = 40;
+numbers[4] = 50;
+```
+
+## Accessing Array Elements
+Array elements can be accessed using their index (starting from 0):
+```java
+System.out.println(numbers[0]); // Outputs the first element
+System.out.println(names[2]);  // Outputs "Charlie"
+```
+
+## Example: Printing Array Elements
+```java
+public class ArrayExample {
+    public static void main(String[] args) {
+        // Declaring and initializing an array
+        int[] numbers = {10, 20, 30, 40, 50};
+
+        // Looping through the array
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.println("Element at index " + i + ": " + numbers[i]);
+        }
+    }
+}
+```
+
+## Example: Finding the Largest Number in an Array
+```java
+public class LargestNumber {
+    public static void main(String[] args) {
+        int[] numbers = {12, 45, 67, 23, 89, 34};
+        int max = numbers[0];
+
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+        }
+
+        System.out.println("The largest number is: " + max);
+    }
+}
+```
+
+## Notes:
+- Arrays have a fixed size, which cannot be changed after initialization.
+- Use `array.length` to get the size of an array.
+- Array indices start at 0 and end at `array.length - 1`.
+
+
