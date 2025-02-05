@@ -7,6 +7,7 @@ public class javaArray {
         for(int i=0;i<3;i++){
             arr[i]=sc.nextInt();
         }
+        sc.close();
         for(int i=0;i<3;i++){
             System.out.printf(arr[i]+" ");
         }

@@ -517,4 +517,94 @@ public class LargestNumber {
 - Use `array.length` to get the size of an array.
 - Array indices start at 0 and end at `array.length - 1`.
 
+## String in Java
+
+## Overview
+A string is a collection of characters. In Java, strings come with a variety of built-in functions that provide useful operations.
+
+## String Functions in Java
+
+1. **`string.length()`** – Returns the length of the string.
+   ```java
+   String str = "Hello";
+   System.out.println(str.length()); // Output: 5
+   ```
+
+2. **`string.charAt(int index)`** – Returns the character at the specified index.
+   ```java
+   System.out.println(str.charAt(1)); // Output: e
+   ```
+
+3. **`string.substring(int beginning_index)`** – Extracts a substring from the given index.
+   ```java
+   System.out.println(str.substring(1)); // Output: ello
+   ```
+
+4. **`string1.concat(string2)`** – Concatenates two strings.
+   ```java
+   String str2 = " World";
+   System.out.println(str.concat(str2)); // Output: Hello World
+   ```
+
+5. **`string.isEmpty()`** – Returns a boolean indicating if the string is empty.
+   ```java
+   String emptyStr = "";
+   System.out.println(emptyStr.isEmpty()); // Output: true
+   ```
+
+6. **`string1.equals(string2)`** – Compares the content of two strings.
+   ```java
+   System.out.println(str.equals("Hello")); // Output: true
+   ```
+
+7. **`string1.compareTo(string2)`** – Compares the length of both strings:
+   ```java
+   System.out.println("abc".compareTo("def")); // Output: -3
+   ```
+
+8. **`string.indexOf(char)`** – Returns the index of the specified character in the string.
+   ```java
+   System.out.println(str.indexOf('l')); // Output: 2
+   ```
+
+9. **`string.contains(String str)`** – Returns `true` if the string contains the specified substring, otherwise `false`.
+   ```java
+   System.out.println(str.contains("ell")); // Output: true
+   ```
+
+10. **`string.startsWith(String prefix)`** – Returns `true` if the string starts with the given prefix.
+   ```java
+   System.out.println(str.startsWith("He")); // Output: true
+   ```
+
+11. **`string.endsWith(String suffix)`** – Returns `true` if the string ends with the given suffix.
+   ```java
+   System.out.println(str.endsWith("lo")); // Output: true
+   ```
+
+12. **`"char".repeat(int count)`** – Repeats the character according to the specified number.
+   ```java
+   System.out.println("A".repeat(3)); // Output: AAA
+   ```
+
+13. **`string.replace(char1, char2)`** – Replaces `char1` with `char2` in the string.
+   ```java
+   System.out.println(str.replace('l', 'p')); // Output: Heppo
+   ```
+
+14. **`string.toUpperCase()`** – Converts all characters in the string to uppercase.
+   ```java
+   System.out.println(str.toUpperCase()); // Output: HELLO
+   ```
+
+15. **`string.toLowerCase()`** – Converts all characters in the string to lowercase.
+   ```java
+   System.out.println(str.toLowerCase()); // Output: hello
+   ```
+
+## Important Note
+In Java, when any function is applied to a string, it does **not** modify the original string since strings are immutable.
+
+
+
 

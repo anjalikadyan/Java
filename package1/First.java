@@ -1,5 +1,5 @@
 package package1;
-import package1.diff;
+// import package1.diff;
 public class First{
 public static void main(String args[]){
 diff ob=new diff();
